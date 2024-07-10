@@ -1,3 +1,10 @@
+/*
+Proof of concept for enabling/disabling global debug flags at runtime
+in addition to compile-time debug flags defined via preprocessor directives.
+
+Run `g++ test.cpp && ./a.out` or `g++ test.cpp && ./a.out --graphics-debug`
+
+*/
 #include <unordered_map>
 #include <string>
 #include <iostream>
@@ -28,7 +35,6 @@ int main(int argc, char* argv[]) {
         if (arg == "--graphics-debug") {
 
             // simulate populating map entry from Redis channel
-            // using command line args
             debug_flags["GRAPHICS_DEBUG"] = true;
         }
     }
