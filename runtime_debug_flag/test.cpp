@@ -35,12 +35,14 @@ int main(int argc, char* argv[]) {
         if (arg == "--graphics-debug") {
 
             // simulate populating map entry from Redis channel
+	    // in real life this should be some callback/thread that
+	    // runs at some sort of reasonable frequency.
             debug_flags["GRAPHICS_DEBUG"] = true;
         }
     }
 
     if (DEBUG_MODE) {
-        // query Redis channel for debug flag
+        // update global variable
         graphicsDebugEnabled = debug_flags["GRAPHICS_DEBUG"]; 
         if (graphicsDebugEnabled) {
             debug_operation();
